@@ -24,13 +24,13 @@ class Node <T: Equatable> {
 class LinkedList <T: Equatable>{
     var head = Node<T>()
     
-    
+    //Remember insertion only occurs at the very end!
     //Insert a new node in the linked list 
-    func insertion(){
+    func insertion(value : T){
         //firstly check to see if the head contains a value corresponding to the next node
         //Check if the head has an value, if it doesn’t, then the value we insert is the head
         if self.head.next == nil {
-            var newValue = self.head.value
+             self.head.value = value
         }
         else {
             //if the head does contain a value then proceed to find the last node in order to insert at the very end
@@ -40,11 +40,24 @@ class LinkedList <T: Equatable>{
             }
             let newNode = Node<T>()
             //creation of a new node
-            var newNodeValue = newNode.value
+            newNode.value = value
             //providing a value for the new node
             lastNode.next = newNode
             //providing the pointer for the previous last node to the new created node 
             //the variable by the name of lastNode now has a next value referencing the pointer that points to newNode 
+            //Connect the last node’s pointer to the new node’s value
+
+        }
+    }
+    
+    //Removing of a node
+    func remove(value: T){
+        //first check if the value that you are looking to remove is at the end
+        if self.head.value == value {
+            self.head = self.head.next!
+        }
+        else if self.head.value != nil {
+            
         }
     }
 }
