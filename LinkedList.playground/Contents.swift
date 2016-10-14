@@ -39,8 +39,12 @@ class LinkedList <T: Equatable>{
                 lastNode = lastNode.next!
             }
             let newNode = Node<T>()
+            //creation of a new node
             var newNodeValue = newNode.value
-            var newNodeNext = newNode.next
+            //providing a value for the new node
+            lastNode.next = newNode
+            //providing the pointer for the previous last node to the new created node 
+            //the variable by the name of lastNode now has a next value referencing the pointer that points to newNode 
         }
     }
 }
